@@ -1,6 +1,5 @@
 # Parcial---3
-
-# Parcial de Patrones de Diseño: Proyecto en Java
+# 🛒 Proyecto: Tienda en Línea Sencilla
 
 **Integrantes:** David Santiago Diaz Jimenez
 **Link del Repositorio:** https://github.com
@@ -9,38 +8,28 @@
 
 ## 1. Alcance del Proyecto
 
-### Funcionalidades Incluidas (SÍ se implementará)
-* **Catálogo de Productos:** Navegación por categorías (Ropa, Tecnología, Alimentos), cada una con sus propios atributos específicos.
-* **Carrito de Compras y Cierre de Pedido:** Gestión de productos seleccionados y cálculo del total acumulado.
-* **Módulo de Descuentos Flexibles:** Aplicación de descuentos por cantidad, temporada y cupones, con reglas para acumularlos.
-* **Procesamiento de Pagos:** Simulación de flujos para tarjeta, transferencia y pago contra entrega.
-* **Servicios Adicionales (Extras):** Selección de garantía extendida, empaque de regalo y envío express.
-* **Sistema de Alertas de Stock:** Notificación automática a los clientes cuando un producto agotado vuelve a tener existencias.
-* **Facturación:** Registro del historial de pedidos y generación de factura en formato texto.
+### Lo que SÍ tendrá el sistema:
+* **Catálogo:** Una lista simple de productos divididos en categorías básicas (Ropa y Tecnología).
+* **Carrito:** Opción para agregar productos y calcular el total acumulado.
+* **Descuentos (Área de cambio 1):** Poder aplicar un descuento fijo al total (como un Cupón del 10% o Descuento de Temporada).
+* **Métodos de Pago (Área de cambio 2):** Opción de elegir pagar con Tarjeta o Efectivo (simulado con mensajes simples en pantalla).
+* **Extras (Área de cambio 3):** Opción de agregar "Empaque de Regalo" o "Garantía" a un producto incrementando su costo.
 
-### Funcionalidades Excluidas (NO se implementará)
-* **Persistencia en Base de Datos Real:** Los datos se manejarán en memoria volátil (Colecciones de Java) durante la ejecución.
-    * *Razón:* No es obligatorio según los términos del parcial y permite enfocar el desarrollo estrictamente en la lógica de los patrones de diseño y la arquitectura limpia.
-* **Conexión con Pasarelas de Pago Externas:** Los pagos serán simulaciones lógicas por consola e interfaz gráfica.
-    * *Razón:* El enunciado solicita explícitamente "medios de pago simulados", por lo que una integración real consume tiempo que no aporta a la rúbrica.
-* **Seguridad y Autenticación Avanzada:** No habrá encriptación de credenciales ni manejo complejo de sesiones de usuario.
-    * *Razón:* Añade una complejidad técnica innecesaria que se sale de los objetivos de evaluación del diseño orientado a objetos del proyecto.
+### Lo que NO tendrá el sistema:
+* **Sin Base de Datos Real:** Todos los productos y el carrito se guardan en listas de Java (ArrayList) en la memoria mientras el programa esté corriendo.
+* **Sin Conexión Externa:** No realiza cobros con tarjetas reales ni se conecta a pasarelas de pago en internet.
 
 ---
 
 ## 2. Requisitos del Sistema
 
-### Requisitos Funcionales (RF)
-* **RF-01:** El sistema debe permitir visualizar productos filtrados por sus categorías específicas.
-* **RF-02:** El sistema debe permitir agregar, editar la cantidad y eliminar ítems del carrito de compras.
-* **RF-03:** El sistema debe evaluar y aplicar los descuentos correspondientes (acumulables o no) sobre el total del carrito.
-* **RF-04:** El sistema debe procesar el pago solicitando los datos específicos según el medio elegido (tarjeta, transferencia o contra entrega).
-* **RF-05:** El sistema debe permitir adjuntar servicios extras a un producto individual antes de consolidar la compra.
-* **RF-06:** El sistema debe registrar usuarios en una lista de espera para un producto sin stock y disparar un aviso cuando este se reabastezca.
-* **RF-07:** El sistema debe imprimir una factura desglosada con subtotales, descuentos aplicados, costos extras y total neto.
+### Requisitos Funcionales (Lo que hace la aplicación)
+* **RF-01:** El sistema debe mostrar la lista de productos disponibles en pantalla.
+* **RF-02:** El sistema debe permitir al usuario añadir productos a su carrito de compras.
+* **RF-03:** El sistema debe calcular el precio total aplicando el descuento seleccionado.
+* **RF-04:** El sistema debe permitir sumarle extras opcionales (como empaque de regalo) a un producto.
+* **RF-05:** El sistema debe mostrar una factura final en texto con el resumen de la compra.
 
-### Requisitos No Funcionales (RNF)
-* **RNF-01 (Arquitectura desacoplada):** El núcleo de la lógica del negocio debe estar completamente aislado de las interfaces de usuario, permitiendo que la versión de consola y la gráfica compartan la misma base de código.
-* **RNF-02 (Tecnología):** La aplicación debe ser desarrollada estrictamente en Java SE utilizando programación orientada a objetos.
-* **RNF-03 (Calidad de Código):** Se deben aplicar patrones de diseño de al menos dos categorías diferentes de la clasificación GoF.
-* **RNF-04 (Mantenibilidad):** El sistema debe permitir añadir nuevos tipos de pagos, descuentos o extras sin necesidad de modificar el código existente (Principio Abierto/Cerrado).
+### Requisitos No Funcionales (Cómo está construida)
+* **RNF-01:** La aplicación debe estar desarrollada completamente en lenguaje Java.
+* **RNF-02:** El sistema debe funcionar mediante una interfaz por consola y una interfaz gráfica sencilla compartiendo el mismo núcleo lógico.
