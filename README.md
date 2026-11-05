@@ -1,5 +1,5 @@
 # Parcial---3
-# Proyecto: Tienda en Línea Sencilla
+# Proyecto: Tienda en Línea 
 
 **Integrantes:** David Santiago Diaz Jimenez
 **Link del Repositorio:** https://github.com
